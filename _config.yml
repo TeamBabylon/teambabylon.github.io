@@ -1,6 +1,13 @@
-theme: jekyll-theme-slate
-name: Team Babylon
-description: A collective blog for a collection of nerds.
-author: Xander Thompson, Brett Settle, John Thorpe, Nick Prendergast
-category_dir: /
+baseurl: ""
+url: "http://teambabylon.github.io"
+
 permalink: pretty
+
+theme: jekyll-theme-slate
+
+title: Team Babylon
+description: A collective blog for a collection of nerds.
+authors: Xander Thompson, Brett Settle, John Thorpe, Nick Prendergast
+paginate: 5
+plugins: [jekyll-paginate]
+version: 1.0.0
