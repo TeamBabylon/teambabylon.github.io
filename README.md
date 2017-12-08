@@ -19,10 +19,13 @@ jekyll serve --watch
 
 **Alexander Thompson**
 - <https://github.com/x-thompson3>
+
 **Brett Settle**
 - <https://github.com/brettjsettle>
+
 **John Thorpe**
 - <https://github.com/thorpedoes>
+
 **Nicholas Prendergast**
 - <https://github.com/StStevens>
 
