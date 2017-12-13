@@ -1,0 +1,37 @@
+---
+layout: page
+title: About
+---
+
+<link rel="stylesheet" href="/public/css/about.css">
+
+<p class="message">
+{{ site.title }} is a Github Pages blog built with Jekyll and (moderately) maintained by four Computer Science graduates from UC Irvine.
+</p>
+
+<div class="about-container">
+	{% for member in site.data.members %}
+		<div class="about-card">
+			<img src="/images/{% if member.image %}{{ member.image }}{% else %}user.jpg{% endif %}" alt="{{member.name}}" style="width:100%; padding: 20px;">
+			<h1>{{ member.name }}</h1>
+			<p class="title">{% if member.header %}{{ member.header }}{% endif %}</p>
+			<p>{% if member.subheader %}{{ member.subheader }}{% endif %}</p>
+
+			{% if member.linkedin %}
+				<a href="https://linkedin.com/in/{{ member.linkedin }}">
+					<i id="social-li" class="fa fa-linkedin-square fa-2x social"></i>
+				</a>
+			{% endif %}
+			{% if member.github %}
+				<a href="https://github.com/{{ member.github }}">
+					<i id="social-gh" class="fa fa-github-square fa-2x social"></i>
+				</a>
+			{% endif %}
+			{% if member.email %}
+				<a href="mailto:{{ member.email }}">
+					<i id="social-em" class="fa fa-envelope-square fa-2x social"></i>
+				</a>
+			{% endif %}
+		</div>
+	{% endfor %}
+</div>

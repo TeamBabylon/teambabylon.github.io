@@ -1,0 +1,72 @@
+.about-container {
+	font-family: calibri;
+	box-sizing: border-box;
+	justify-content: center;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.about-card {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	max-width: 300px;
+	margin: auto;
+	text-align: center;
+
+	width: 350px;
+	border: 1px solid gray;
+	box-shadow: 1px 1px 3px #888;
+	border-top: 10px solid gray;
+	min-height: 250px;
+	padding-: 10px;
+	margin: 10px;
+}
+
+.about-card .title {
+	color: grey;
+	font-size: 18px;
+}
+
+.about-card button {
+	border: none;
+	outline: 0;
+	display: inline-block;
+	padding: 8px;
+	color: white;
+	background-color: #000;
+	text-align: center;
+	cursor: pointer;
+	width: 100%;
+	font-size: 18px;
+}
+
+.about-card a {
+	text-decoration: none;
+	font-size: 18px;
+	color: black;
+}
+
+.about-card button:hover, .about-card a:hover {
+	opacity: 0.7;
+}
+/*
+Multicoloured Hover Variations
+ */
+
+	#social-fb:hover {
+		color: #3B5998;
+	}
+	#social-li:hover {
+		color: #4099FF;
+	}
+	#social-gh:hover {
+		color: #6e5494;
+	}
+	#social-em:hover {
+		color: #f39c12;
+	}
+	#social-gp:hover {
+		color: #dd4b39;
+	}
+	#social-fl:hover {
+		color: #ff0084;
+	}
