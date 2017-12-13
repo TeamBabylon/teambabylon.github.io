@@ -26,6 +26,12 @@
 	font-size: 18px;
 }
 
+.about-card img {
+	padding: 20px;
+	height: 300px;
+	margin: auto;
+}
+
 .about-card button {
 	border: none;
 	outline: 0;
