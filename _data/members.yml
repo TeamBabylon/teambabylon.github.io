@@ -5,8 +5,8 @@
   github: brettjsettle
   linkedin: brettjsettle
   email: brettjsettle@gmail.com
-  titletext: "Keep searching old man, you're getting closer!"
-  alttext: "Nope, not here! Try someone else."
+  titletext: "Lord of the Lab Rats"
+  alttext: "Brett Settle"
 
 - name: Xander Thompson
   header: Associate Product Manager
@@ -15,19 +15,19 @@
   github: x-thompson3
   linkedin: xthompson75
   email: x.thompson3@gmail.com
-  titletext: "Keep searching old man, you're getting closer!"
-  alttext: "I think something is clogging the dryer vent outside. Go take a look and see if you can fix it."
+  titletext: "Synergistic Savant"
+  alttext: "Xander Thompson"
 
 - name: John Thorpe
   header: ""
   subheader: ""
   github: thorpedoes
-  titletext: "Keep searching old man, you're getting closer!"
-  alttext: "Nope, not here! Try someone else."
+  titletext: "A Student, but this time with more debt!"
+  alttext: "John Thorpe"
 
 - name: Nicholas Prendergast
   header: ""
   subheader: ""
   github: StStevens
-  titletext: "Keep searching old man, you're getting closer!"
-  alttext: "Nope, not here! Try someone else."
+  titletext: "Nick doesn't have a cool title!"
+  alttext: "Nick Prendergast"
