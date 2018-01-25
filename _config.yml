@@ -1,5 +1,6 @@
 baseurl: ""
 url: "http://teambabylon.github.io"
+excerpt_separator: "<!--more-->"
 
 permalink: pretty
 
