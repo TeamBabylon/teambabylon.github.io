@@ -64,7 +64,7 @@ I had fallen trap to the same assumption that many a game designer or puzzlemake
 
 My family had their own ideas of what each puzzle needed, and they approached each puzzle differently.
 
-Going forward, I'll be focused more on how a complete and total stranger would approach each puzzle. There were a couple points in each group of puzzles where I had to give a little _wink wink nudge nudge_ in the right direction because they unsure of how to approach the puzzle.
+Going forward, I'll be focused more on how a complete and total stranger would approach each puzzle. There were a couple points in each group of puzzles where I had to give a little _wink wink nudge nudge_ in the right direction because they were unsure of how to approach the puzzle.
 
 Well, I hope you enjoyed this write-up, and I certainly hope you enjoy the videos of my dorky family! Leave any comments, questions, or tell me about your puzzle experiences!
 
