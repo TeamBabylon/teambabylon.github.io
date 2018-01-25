@@ -2,6 +2,7 @@
 layout: post
 title: The Christmas Conundrum
 published: true
+author: Xander Thompson
 ---
 
 Creating a Puzzle Game Experience out of Christmas
