@@ -5,7 +5,8 @@ published: true
 author: Xander Thompson
 ---
 
-Creating a Puzzle Game Experience out of Christmas
+Or: How my siblings learned to stop worrying and love the puzzles.
+
 <!--more-->
 <div class="message">
   "What I did over winter break was..."
