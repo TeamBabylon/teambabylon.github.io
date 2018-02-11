@@ -23,61 +23,40 @@ Pointer arithmetic makes sense because arrays are stored as a single block of me
 ![contiguous array image](https://i.stack.imgur.com/qXo36.png)
 ###### Image source: [Stack Overflow Question](https://stackoverflow.com/questions/40364357/are-array-element-values-stored-in-one-location-or-in-separate-locations)
 
-An important note about memory in C (and other languages) is that dynamic memory and static memory are stored differently.  When a variable is declared globally or statically, it is placed on the stack, which grows downwards. When a variable is declared dynamically, it is added to the top of the heap, which grows upward.  Both use pointer arithmetic to keep track of where frames start and end.
+An important note about memory in C (and other languages) is that dynamic memory and static memory are stored differently.  When a variable is declared globally or statically, it is placed on the stack, which grows downwards. When a variable is declared dynamically, it is added to the top of the heap, which grows upward.  Both use pointer arithmetic to jump around in memory.
 
 ![memory in c programs](https://www.geeksforgeeks.org/wp-content/uploads/Memory-Layout.gif)
 ###### Image source: [Memory Layout of C Program](https://www.geeksforgeeks.org/memory-layout-of-c-program/)
 
-When an array is initialized, its elements are added to the stack or heap accordingly.
+When a variable is declared, it is pushed onto the stack or heap accordingly. Declaring a static array will push `sizeof(type) * size` bytes onto the stack and return the location of `arr[0]`, which will be the bottom of the stack.  When a dynamic variable/array is declared, the pointer is pushed onto the stack pointing to `nullptr`. Running `malloc` allocates space on the heap and returns the first address of that block.  So, when allocating space for an array on the heap or the stack, the lowest address of the block is always the first element.
 
-![c array stack vs heap](http://www.bogotobogo.com/cplusplus/images/pointers2/array_stack_heapA.png)
-###### Image source: [C++ Tutorial: Pointers II - 2018](http://www.bogotobogo.com/cplusplus/pointers2_voidpointers_arrays.php)
-
-In order to iterate via pointer arithmetic, arrays are stored as a contiguous block of memory, _in the same order_ whether declared statically or dynamically. That means, despite the memory blocks growing in opposite directions, the first element will always have the lowest memory address, and the last element will always have the highest memory address. The only contradiction is the arrays order in the direction that the memory block grows, and so, where the stack pointer points.
-
-Here's a short block of C code to demonstrate this:
-
+In this snippet, I create 2 static arrays, then 2 dynamic arrays, all of length 2;
 ```c
-#include <stdio.h>
-#include <stdlib.h>
+int a[2] = {1, 2};
+int a2[2] = {1, 2};
 
-int stack[5];
-int stack2;
-int main(int argc, char* argv[]){
-	printf("Stack[0]: %p\n", stack);
-	printf("Stack[1]: %p\n", (stack+1));
-	printf("Stack[2]: %p\n", &(stack[2]));
+int *b = malloc(2 * sizeof(int));
+int *b2 = malloc(2 * sizeof(int));
+```
+Here is a visual representation of how memory is being allocated.  Notice that the elements are pushed onto the bottom of the stack in the order they are declared, and pushed onto the top of the heap in the order they are allocated.  However, the array elements are always in the same order, with the first element at the lowest memory address.
 
-	char comp_s = &stack2 > stack ? '>' : '<';
-	printf("Stack2: %p %c Stack[0] %p\n", &stack2, comp_s, stack);
+![snippet image](https://raw.githubusercontent.com/TeamBabylon/teambabylon.github.io/master/images/C_Arrays_Heap_vs_Stack.png)
 
-	int *heap = malloc(5 * sizeof(int));
-	printf("Heap[0]: %p\n", heap);
-	printf("Heap[1]: %p\n", (heap+1));
-	printf("Heap[2]: %p\n", &(heap[2]));
+In order to iterate via pointer arithmetic, arrays are stored as a contiguous block of memory, _in the same order_ whether declared statically or dynamically. That means, despite the memory blocks growing in opposite directions, the first element will always have the lowest memory address, and the last element will always have the highest memory address.
 
-	int *heap2 = malloc(sizeof(int));
-	char comp_h = heap2 > heap ? '>' : '<';
-	printf("Heap2: %p %c Heap[0] %p\n", heap2, comp_d, heap);
-
-	free(heap2);
-	free(heap);
-
-	/*
-	Output: addresses will differ for you
-	Stack[0]: 0x10e186030
-	Stack[1]: 0x10e186034
-	Stack[2]: 0x10e186038
-	Stack2: 0x10e186044 > Stack[0] 0x10e186030
-
-	Heap[0]: 0x7f7f34c027d0
-	Heap[1]: 0x7f7f34c027d4
-	Heap[2]: 0x7f7f34c027d8
-	Heap2: 0x7f7f34c00370 < Heap[0] 0x7f7f34c027d0
-	*/
-
-	return 0;
-}
+For a test, I printed out the memory addresses of the variables.
+```
+a[1]: 0x7ffeec2fb7b4
+a[0]: 0x7ffeec2fb7b0
+a2[1]: 0x7ffeec2fb7ac
+a2[0]: 0x7ffeec2fb7a8
+*b: 0x7ffeec2fb790
+*b2: 0x7ffeec2fb788
+-----------
+b2[1]: 0x7ff5a0c027d4
+b2[0]: 0x7ff5a0c027d0
+b[1]: 0x7ff5a0c00374
+b[0]: 0x7ff5a0c00370
 ```
 
-The static variables are stacked on top of each other with decreasing memory addresses, while the heap variables are declared with increasing memory addresses. However, the order of the items in the array are always stored in the same order.  After all, an array is a single object.  Nevertheless, I thought it was pretty neat to print out the addresses and see it for myself.
+Looks like everything is laid out as expected.  There is a large gap between b[1] and b2[0], but that is expected with `malloc`.  Most of this is pretty basic knowledge, but I still thought it was interesting, and would make a good first blog post. Thanks for reading!
